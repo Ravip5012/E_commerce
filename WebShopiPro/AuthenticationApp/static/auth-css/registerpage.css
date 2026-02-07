@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+    color: #333;
+}
+
+/* Container for the whole form */
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Title above form */
+.body-container strong {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #222;
+}
+
+/* Form card */
+.forms-container {
+    background-color: #fff;
+    padding: 35px 40px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Input fields */
+.detail-container .field, 
+.username, 
+.EmailAddress, 
+.pass-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    border: 1px solid #555;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+input::placeholder {
+    color: #aaa; 
+}
+
+.name-input {
+    display: flex;
+    gap: 15px;
+}
+
+.name-input .field {
+    margin: 8px !important; 
+}
+
+/* Submit (Register) button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222; 
+    color: #fff; 
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Footer link text */
+.endded-part {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.endded-part a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.endded-part a:hover {
+    color: #444;
+    text-decoration: underline;
+}

@@ -1,0 +1,11 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .import models
+
+@receiver(post_save, sender=User)
+def create_cart(sender, instance, created, **kwargs):
+    if created:
+        models.Cart.objects.create(User=instance)
+
+        

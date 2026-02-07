@@ -1,0 +1,67 @@
+{% extends 'baseheader.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ product.title }}</title>
+{% endblock %}
+
+{% block extracss %}
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+<link rel="stylesheet" href="{% static 'CSS/product.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class="container">
+    <div class="product-detail">
+        <div class="product-left">
+            <img src="{{ product.thumbnail }}" alt="{{ product.title }}" class="main-image" />
+        </div>
+        <div class="product-right">
+            <h1 class="product-title">{{ product.title }}</h1>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price"><strong>Price:</strong> ${{ product.price }}</p>
+            <p class="product-rating">⭐ {{ product.rating }} / 5</p>
+            <!-- <p class="product-reviews"><strong>Reviews:</strong> {{ product.reviews }}</p> -->
+            <div class="product-buttons">
+                <a href="{% url 'add-to-cart' product.id %}" class="btn-cart">Add to Cart</a>
+                <a href="#" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="selected-products">
+        {% for product in products %}
+        <div class="product-card">
+            <h3>{{ product.title }}</h3>
+            <p>Price: {{ product.price }}</p>
+            {% endfor %}
+        </div>
+        <div class="other-products">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for product in fetch_product %}
+                <div class="col">
+                    <div class="card h-100 product-card">
+                        <img src="{{ product.thumbnail }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">${{ product.price }}</p>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <!-- <span>{{ product.rating }}</span> -->
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="{% url 'product' product.id %}" class="btn-buy">Buy Now</a>
+                            <form method="post" action="{% url 'add-to-cart' product.id %}">
+                                {% csrf_token %}
+                                <button class="btn-cart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}

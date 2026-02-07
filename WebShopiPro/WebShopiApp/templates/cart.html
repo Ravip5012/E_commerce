@@ -1,0 +1,67 @@
+ {% load static %}
+
+<link rel="stylesheet" href="{% static 'CSS/cart.css' %}">
+
+<h1>Your Cart {{ user.username }}</h1>
+
+{% if cart_items %}
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+    {% for item in cart_items %}
+      <tr>
+        <td>{{ item.product.title }}</td>
+        <td>{{ item.product.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.total_price|floatformat:2 }}</td>
+        <td>
+          <form method="post" action="{% url 'update-cart-item' item.id %}">
+            {% csrf_token %}
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+            <button type="submit">Update</button>
+          </form>
+          <form method="post" action="{% url 'remove-cart-item' item.id %}">
+            {% csrf_token %}
+            <button type="submit">Remove</button>
+          </form>
+       
+          
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+<h3>Total: ${{ cart_total|floatformat:2 }}</h3>
+
+<div class="cart-footer">
+  <div class="back-to-home">
+    <a href="{% url 'index' %}">Back to Shopping</a>
+  </div>
+
+  <form method="POST" action="{% url 'pay' %}">
+    {% csrf_token %}
+    <button type="submit" class="checkout">Proceed to Checkout</button>
+  </form>
+</div>
+
+{% else %}
+  <p style="margin-left: 700px;">OOP'S! Your cart is empty.</p>
+
+<div class="cart-animations">
+  <video autoplay loop muted playsinline>
+    <source src="{% static 'media/cartanimations.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="back-to-home">
+  <a href="{% url 'index' %}">
+   Back to Shopping
+  </a>
+</div>
+
+{% endif %}

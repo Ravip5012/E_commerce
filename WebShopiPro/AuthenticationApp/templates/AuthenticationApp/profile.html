@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block title %}
+<title>My Profile</title>
+{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'auth-css/profile.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="plus-member">
+  <strong>{{ user.first_name }} {{ user.last_name }}</strong>
+  <div class="membership">
+    <p>⭐<i>Plus Golden</i> till january 23.2026</p>
+  </div>
+  <div class="money-save">
+    <p>₹284 saved with Plus membership</p>
+  </div>
+</div>
+<div class="profile-container">
+
+  <!-- User Information -->
+  <div class="container_userdata">
+    <div class="user-card">
+      <!-- <img src="{% static 'images/user.png' %}" alt="Profile Pic" class="profile-pic"> -->
+      <div class="user-info">
+        <h2>{{ user.username }}</h2><br>
+        <p>Last Login: <span>{{ user.last_login }}</span></p>
+      </div>
+
+
+
+      <!-- Actions -->
+      <div class="logout-cart">
+        <a href="{% url 'cart' %}" class="action-card">
+          <h3>My Cart</h3>
+        </a>
+        <a href="{% url 'index' %}" class="action-card">
+          <h3>Go shoping</h3>
+        </a>
+        <a href="{% url 'changepass' %}" class="action-card">
+          <h3>Change Password</h3>
+        </a>
+
+        <a href="{% url 'logout' %}" class="action-card logout">
+          <h3>Log Out</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2 >Recently Viewed Products</h2>
+<div class="recent-products">
+  {% for product in products %}
+    <div class="product-card" >
+      <img src="{{ product.thumbnail }}" alt="{{ product.name }}">
+      <h4>{{ product.name }}</h4>
+      <!-- <p>{{ product.price }}</p> -->
+      <a href="{% url 'product' product.pk %}">View Again</a>
+    </div>
+  {% empty %}
+    <p>No recently viewed products yet.</p>
+  {% endfor %}
+</div>
+<br><br><br><br>
+{% endblock %}

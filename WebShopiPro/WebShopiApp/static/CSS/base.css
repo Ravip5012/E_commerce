@@ -1,0 +1,165 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #fff;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  margin-left: 7px;
+  height: 40px;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2563eb;
+}
+.nav-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing between items */
+}
+
+.nav-actions li {
+  list-style: none;
+}
+
+.nav-actions a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-actions .btn-link {
+  color: #555;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.nav-actions .btn-link:hover {
+  color: #007bff;
+  background: #f1f1f1;
+}
+
+/* .nav-actions  {
+  background: #007bff;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+} */
+
+.nav-actions .btn-primary:hover {
+  background: #0056b3;
+}
+
+.nav-actions .cart-icon {
+  position: relative;
+  color: #333;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.nav-actions .cart-icon:hover {
+  transform: scale(1.1);
+  color: #007bff;
+}
+
+.cart-icon {
+  margin-right: 5px;
+  color: #374151;
+}
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  height: 300px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-container div {
+  text-align: center;
+}
+
+.footer-concept a {
+  display: block;
+  margin: 8px 0;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-concept a:hover {
+  color: #fff;
+}
+
+.payments p {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.payment-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.payment-logos img {
+  width: 80px;   
+  height: auto;
+  border-radius: 6px;
+  background: #fff;
+  padding: 5px;
+}
+
+.category p:first-child {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-us {
+  text-align: center;
+}
+
+.contact-us .follow-us {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-us a {
+  color: #ddd;
+  font-size: 24px;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.contact-us a:hover {
+  color: #fff;
+}

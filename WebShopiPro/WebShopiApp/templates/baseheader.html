@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Shopi</title>
+  <link rel="stylesheet" href="{% static 'CSS/headerbase.css' %}">
+  {% block extracss %}
+  {% endblock %}
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="{% static 'images/logo.png' %}" alt="logo" class="logo">
+      <span class="brand">WebShopi</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Shipping & Payment</a>
+      <a href="#">Contacts</a>
+      <a href="#">Help</a>
+    </nav>
+    <div class="nav-actions">
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}" class="btn btn-link">Logout</a></li>
+      <li><a href="{% url 'profile' %}" class="btn btn-link">Profile</a></li>
+      {% else %}
+      <a href="{% url 'login' %}" class="btn btn-link">Login</a>
+      <a href="{% url 'register' %}" class="btn btn-link">Sign Up</a>
+      {% endif %}
+      <a href="{% url 'cart' %}" class="cart-icon"><i class="bi bi-cart4 fs-4"></i></a>
+    </div>
+  </header>
+
+   {% block header %}
+  {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load static %}
+{% block title %}
+    <title>Contact Us</title>
+    {% endblock %}
+
+    {% block extracss %}
+    <link rel="stylesheet" href="{% static 'CSS/contact.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    {% endblock %}
+{% block content %}
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Fill out the form below or reach us through the contact info.</p>
+
+        <div class="contact-content">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p><strong>Address:</strong> 123 WebShopi Street, Mumbai, India</p>
+                <p><strong>Email:</strong> info@webshopi.com</p>
+                <p><strong>Phone:</strong> +91 123 456 7890</p>
+                <div class="social-icons">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,224 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.product-left {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.product-left .main-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-left .main-image:hover {
+    transform: scale(1.05);
+}
+
+.product-right {
+    flex: 1 1 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.product-description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #161e1d;
+}
+
+.product-rating {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #e9c46a;
+}
+
+.product-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-cart, .btn-buy {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-buy {
+    background-color: #adb5bd;
+    color: #fff;
+}
+
+.btn-buy:hover {
+    background-color: #868e96;
+}
+
+.card-footer .btn-outline-dark {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.card-footer:hover .btn-outline-dark {
+    opacity: 1;
+    background-color: #f1f3f5;
+    color: #000;
+}
+
+.cart-text{
+    font-size: larger;
+    font-weight: 600;
+}
+
+.selected-products .product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selected-products .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.other-products {
+    margin-top: 50px;
+}
+
+.other-products .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.other-products .col {
+    flex: 1 1 calc(20% - 16px); 
+    max-width: calc(20% - 16px);
+}
+
+.other-products .product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.other-products .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.other-products .product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.other-products .card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.other-products .card-body h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.other-products .card-body p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #555;
+}
+
+.other-products .rating {
+    margin-top: 5px;
+    color: #e9c46a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.other-products .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-top: none;
+    background: none;
+}
+
+@media (max-width: 1200px) {
+    .other-products .col {
+        flex: 1 1 calc(25% - 16px);
+        max-width: calc(25% - 16px);
+    }
+}
+
+@media (max-width: 992px) {
+    .other-products .col {
+        flex: 1 1 calc(33.33% - 16px); 
+        max-width: calc(33.33% - 16px);
+    }
+    .product-detail {
+        flex-direction: column;
+    }
+    .product-left, .product-right {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .other-products .col {
+        flex: 1 1 calc(50% - 16px); 
+        max-width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 576px) {
+    .other-products .col {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+}

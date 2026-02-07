@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Shopi</title>
+  <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+  {% block extracss %}
+  {% endblock %}
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="{% static 'images/logo.png' %}" alt="logo" class="logo">
+      <span class="brand">WebShopi</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Shipping & Payment</a>
+      <a href="{% url 'contact' %}">Contacts</a>
+      <a href="#">Help</a>
+    </nav>
+    <div class="nav-actions">
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}" class="btn btn-link">Logout</a></li>
+      <li><a href="{% url 'profile' %}" class="btn btn-link">Profile</a></li>
+      {% else %}
+      <a href="{% url 'login' %}" class="btn btn-link">Login</a>
+      <a href="{% url 'register' %}" class="btn btn-link">Sign Up</a>
+      {% endif %}
+      <a href="{% url 'cart' %}" class="cart-icon"><i class="bi bi-cart4 fs-4"></i></a>
+    </div>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  <!-- footer sections -->
+  <footer>
+  <div class="footer-container">
+    <!-- Links -->
+    <div class="footer-concept">
+      <a href="#">Shipping & Payment</a>
+      <a href="#">Contacts</a>
+      <a href="#">Help</a>
+    </div>
+
+    <!-- Payments -->
+    <div class="payments">
+      <p>Payments We Accept</p>
+      <div class="payment-logos">
+        <img src="{% static 'images/paypal.jpg' %}" alt="PayPal">
+        <img src="{% static 'images/visa.webp' %}" alt="Visa">
+        <img src="{% static 'images/gpay.jpg' %}" alt="Google Pay">
+        <img src="{% static 'images/discover.png' %}" alt="Discover">
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="category">
+      <p>Categories</p>
+      {% for product in products|slice:":5" %}
+        <p>{{ product.name }}</p>
+      {% empty %}
+        <p>No categories available</p>
+      {% endfor %}
+    </div>
+
+    <!-- Social Media -->
+    <div class="contact-us">
+      <p class="follow-us">Follow us on</p>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-twitter-x"></i></a>
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+      <a href="#"><i class="bi bi-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+<title>WebShopi - E-commerce</title>
+{% endblock %}
+
+{% block extracss %}
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>WebShopi 🛍️</h1>
+    <p>Everything you need, just a click away</p>
+    <form action="{% url 'search-products' %}" method="get">
+      <div class="search-box">
+        <input type="text" placeholder="Search products" name="q" value="{{ query }}">
+        <button><i class="bi bi-search"></i></button>
+      </div>
+    </form>
+  </div>
+  <div class="hero-img">
+    <img src="{% static 'images/top1image.png' %}" alt="Hero" class="Hero-image">
+  </div>
+</section>
+
+<!-- Search Results -->
+<section class="search-products">
+  <div>
+    {% if product_data %}
+    {% for product in product_data %}
+    <div class="search-card">
+      <div class="search-images">
+        <img src="{{ product.thumbnail }}" alt="{{ product.title }}" loading="lazy" />
+      </div>
+      <div class="image-details">
+        <h3 title="{{ product.title }}">{{ product.title }}</h3>
+        {% if product.brand %}
+        <p class="search-ptag">{{ product.brand }}</p>
+        {% endif %}
+        <p>${{ product.price }}</p>
+        {% if product.description %}
+        <p>{{ product.description|truncatechars:110 }}</p>
+        {% endif %}
+        <div>
+          <form method="post" action="{% url 'add-to-cart' product.id %}">
+            {% csrf_token %}
+            <button>Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No products found.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories container">
+  <div class="section-header">
+    <h2>Select Categories</h2>
+    <a href="#">Show All</a>
+  </div>
+
+  <div class="category-grid">
+    <div class="category-card"><i class="bi bi-brush"></i>
+      <p>Art & Creativity</p>
+    </div>
+    <div class="category-card"><i class="bi bi-controller"></i>
+      <p>Games & Puzzles</p>
+    </div>
+    <div class="category-card"><i class="bi bi-basket3"></i>
+      <p>Food & Drinks</p>
+    </div>
+    <div class="category-card"><i class="bi bi-bag"></i>
+      <p>Clothes</p>
+    </div>
+    <div class="category-card"><i class="bi bi-heart-pulse"></i>
+      <p>Health & Safety</p>
+    </div>
+    <div class="category-card"><i class="bi bi-person-hearts"></i>
+      <p>For Mothers</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div class="container py-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products|slice:":30" %}
+      <div class="col">
+        <div class="card h-100 product-card">
+          <img src="{{ product.thumbnail }}" class="card-img-top" alt="{{ product.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">${{ product.price }}</p>
+            <div class="rating mb-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <span>{{ product.rating }}</span>
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <a href="{% url 'product' product.id %}" class="btn-buy">Buy Now</a>
+            <form method="post" action="{% url 'add-to-cart' product.id %}">
+              {% csrf_token %}
+              <button class="btn-cart">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+        <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+
+        <link rel="stylesheet" href="{% static 'auth-css/login.css' %}">
+
+        <script src="{% static 'login.js' %}"></script>
+
+</head>
+<body>
+    <div class="login-container">
+        <form action="" method="POST">
+            <div class="token">
+                {% csrf_token %}
+            </div>
+            <div class="forms-container">
+                {{form.as_p}}
+               <a href="{% url 'login' %}">
+                 <button type="submit" id="bttn-login" >Login</button> 
+               </a>
+            </div>
+            <p>  Don't have an account? <a href="{% url 'register' %}">Register Here</a></p>
+        </form>
+    </div>
+</body>
+</html>

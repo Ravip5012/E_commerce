@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login on WebShopi-E_commerce</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+
+
+    <link rel="stylesheet" href="{% static 'auth-css/registerpage.css' %}">
+</head>
+<body>
+    <div class="body-container">
+        <strong>Hey, Welcome to WebShopi-E_commerce!</strong>
+    <form action="" method="POST" class="forms-container">
+        {% csrf_token %}
+        {% if messages %}
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        <div class="detail-container">
+              <div class="name-input">
+                <div class="field">
+                    <label for="firstname">First Name: </label>
+                    <input type="text" id="firstname" class="name-user" placeholder="Jhon" name="first_name">
+                </div>
+                <div class="field">
+                    <label for="lastname">Last Name: </label>
+                    <input type="text" id="lastname" class="name-user" placeholder="Deo" name="last_name">
+                </div>
+            </div>
+            <div class="username">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" required >
+            </div>
+            <div class="EmailAddress">
+                <label for="email">Email Address: </label>
+                <input type="email" id="email" placeholder="JhonDeo@Email.com" name="email" required>
+            </div>
+
+            <div class="pass-input">
+                <label for="password">Password: </label>
+                <input type="password" id="password" placeholder="**********" name="password" required><br>
+                <label for="pass-confirmation">Confirm password: </label>
+                <input type="password" id="pass-confirmation" placeholder="Re-type password" name="password2" required>
+            </div>
+            <!-- <div class="permission-request">
+            <input type="checkbox" required  p>Read all necessary task or manage cookies!</p>> 
+        </div>
+       </div> -->
+            <button type="submit">register</button>
+            <p class="endded-part">If you Already Register then, <a href="{% url 'login' %}">Login</a></p>
+    </form>
+    </div>
+
+</body>
+
+</html>

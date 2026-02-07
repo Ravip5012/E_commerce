@@ -1,0 +1,100 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.payment-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.payment-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.cart-items {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.cart-total {
+  margin: 20px 0;
+  text-align: right;
+  font-size: 1rem;
+}
+
+.cart-total p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.cart-total h3 {
+  margin-top: 8px;
+  font-size: 1.3rem;
+  color: #e74c3c;
+}
+
+.payment-options {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f4f7fb;
+  border-radius: 8px;
+}
+
+.payment-options h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.payment-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.payment-options li {
+  padding: 8px 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.payment-options li:last-child {
+  border-bottom: none;
+}
+
+.pay-btn {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.pay-btn button {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pay-btn button:hover {
+  background: #219150;
+}

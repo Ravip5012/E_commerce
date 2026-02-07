@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment - WebShopi</title>
+    <link rel="stylesheet" href="{% static 'paycss/paypage.css' %}">
+</head>
+
+<body>
+
+    <div class="payment-container">
+
+        <h2>Payment Summary</h2>
+
+        <!-- Cart Items -->
+        <div class="cart-items">
+            {% for item in items %}
+            <div class="cart-item">
+                <p><strong>{{ item.product.title }}</strong> - Qty: {{ item.quantity }}</p>
+                <p>Price: ${{ item.total_price|floatformat:2 }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Totals -->
+        <div class="cart-total">
+            <p>Subtotal:(INR) ₹{{ subtotal }}</p>
+            <p>GST (18%):(INR) ₹{{ gst }}</p>
+            <h3>Total Payable:(INR) ₹{{ final_value }}</h3>
+        </div>
+
+        <!-- Payment Methods -->
+       <div class="payment-options">
+    <h3>Choose a Payment Method</h3>
+    <form action="">
+        <input type="radio" id="upi-id" name="payment_method" value="upi">
+        <label for="upi-id">UPI-ID</label><br>
+
+        <input type="radio" id="paytm" name="payment_method" value="paytm">
+        <label for="paytm">QR-code</label><br>
+
+        <input type="radio" id="applepay" name="payment_method" value="applepay">
+        <label for="applepay">Apple Pay</label>
+    </form>
+</div>
+
+
+        <!-- Pay Button -->
+        <div class="pay-btn">
+            <form action="{% url 'paypage' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Pay Now ₹{{ final_value }}</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

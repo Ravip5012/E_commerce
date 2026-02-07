@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'paycss/paygate.css' %}">
+<div class="qr-payment-container">
+    <h1 class="brand">WebShopi</h1>
+    <h2 class="title">Scan & Pay</h2>
+
+    <div class="qr-box">
+        <img src="{% static 'QR.png' %}" alt="QR Code not generated">
+    </div>
+
+    <p class="amount">Amount to Pay: ₹{{ final_value }}</p>
+    <p class="upi-id">UPI ID: sandipyadav90840-1@okicic</p>
+
+    <div class="note">
+        <p>After scanning, confirm the payment in your UPI app.</p>
+    </div>
+
+    <div class="back-home">
+        <a href="{% url 'index' %}">⬅ Back to Shopping</a>
+    </div>
+</div>

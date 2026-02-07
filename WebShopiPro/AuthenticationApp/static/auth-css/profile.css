@@ -1,0 +1,179 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1f3f6;
+  color: #333;
+}
+
+/* --- Membership Banner --- */
+.plus-member {
+  background: linear-gradient(90deg, #949391, #ded476);
+  color: #212121;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 90%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.plus-member strong {
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.plus-member .membership p {
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.plus-member .money-save p {
+  margin-top: 5px;
+  font-size: 0.95rem;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* --- Profile Section --- */
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* Left User Card */
+.user-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  max-height: 400px;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-card .profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #2874f0;
+  object-fit: cover;
+}
+
+.user-card .user-info h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  color: #2874f0;
+}
+
+.user-card .user-info p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Right Action Cards */
+.logout-cart {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.action-card {
+  background: #fff;
+  text-decoration: none;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.action-card i {
+  font-size: 2rem;
+  color: #2874f0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.action-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.action-card:hover {
+  background: #f1f3f6;
+  transform: translateY(-3px);
+}
+
+.logout {
+  background: #ffeaea;
+  color: #d32f2f;
+}
+
+.logout i {
+  color: #d32f2f;
+}
+
+.logout:hover {
+  background: #ffdddd;
+}
+
+/* --- Recently Viewed Products --- */
+.recent-products {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 20px auto;
+  margin-left: 100px;
+}
+
+.product-card {
+  width: 250px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-card h4 {
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+  color: #212121;
+}
+
+.product-card p {
+  font-weight: bold;
+  margin: 2px 0;
+  color: #333;
+}
+
+.product-card a {
+  font-size: 12px;
+  color: #2874f0;
+  text-decoration: none;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
